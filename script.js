@@ -9,7 +9,21 @@ function adicionaTarefa() {
 		li.innerHTML = texto;
 		ol.prepend(li);
 		input.value = '';
+		alteraFundo();
 	});
 }
 
 adicionaTarefa();
+
+function alteraFundo() {
+	let lis = ol.children;
+	let cor = 'rgb(128, 128, 128)';
+	for(let l of lis){
+		l.addEventListener('click', function () {
+			console.log(this);
+			this.style.backgroundColor = cor;
+		});
+	}
+}
+
+alteraFundo();

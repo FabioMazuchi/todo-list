@@ -18,12 +18,20 @@ adicionaTarefa();
 function alteraFundo() {
 	let lis = ol.children;
 	let cor = 'rgb(128, 128, 128)';
-	for(let l of lis){
-		l.addEventListener('click', function () {
-			console.log(this);
-			this.style.backgroundColor = cor;
+	for (let l of lis) {
+		l.addEventListener('click', function (e) {
+			let selected = this;
+			for (let i = 0; i < lis.length; i++) {
+				if (lis[i] !== selected) {
+					lis[i].style.backgroundColor = 'white';
+				} else {
+					lis[i].style.backgroundColor = cor;
+				}
+			}
 		});
 	}
 }
 
 alteraFundo();
+
+

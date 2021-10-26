@@ -32,6 +32,7 @@ function alteraFundo() {
 	}
 }
 
+
 alteraFundo();
 
 

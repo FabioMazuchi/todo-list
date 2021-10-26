@@ -7,7 +7,7 @@ function adicionaTarefa() {
 		let texto = input.value;
 		let li = document.createElement('li');
 		li.innerHTML = texto;
-		ol.prepend(li);
+		ol.appendChild(li);
 		input.value = '';
 		alteraFundo();
 	});
@@ -19,7 +19,7 @@ function alteraFundo() {
 	let lis = ol.children;
 	let cor = 'rgb(128, 128, 128)';
 	for (let l of lis) {
-		l.addEventListener('click', function (e) {
+		l.addEventListener('click', function () {
 			let selected = this;
 			for (let i = 0; i < lis.length; i++) {
 				if (lis[i] !== selected) {
@@ -31,8 +31,3 @@ function alteraFundo() {
 		});
 	}
 }
-
-
-alteraFundo();
-
-

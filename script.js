@@ -1,89 +1,60 @@
-let btnAdd = document.querySelector('#criar-tarefa');
-let ol = document.querySelector('#lista-tarefas');
-let input = document.querySelector('#texto-tarefa');
-let btnApaga = document.querySelector('#apaga-tudo');
-let btnFinalizados = document.querySelector('#remover-finalizados');
-
-
-function adicionaTarefa() {
-	cont = 0;
-	btnAdd.addEventListener('click', function () {
-		let texto = input.value;
-		let li = document.createElement('li');
-		li.className = cont;
-		li.innerHTML = texto;
-		ol.appendChild(li);
-		cont++;
-		input.value = '';
-		alteraFundo();
-		apagaTudo();
-		completed();
-		removerFinalizados();
-	});
-}
-
-adicionaTarefa();
+const btnAdd = document.querySelector('#criar-tarefa');
+const ol = document.querySelector('#lista-tarefas');
+const input = document.querySelector('#texto-tarefa');
+const btnApaga = document.querySelector('#apaga-tudo');
+const btnFinalizados = document.querySelector('#remover-finalizados');
 
 function alteraFundo() {
-	let lis = ol.children;
-	let cor = 'rgb(128, 128, 128)';
-	for (let l of lis) {
-		l.addEventListener('click', function () {
-			let selected = this;
-			for (let i = 0; i < lis.length; i++) {
-				if (lis[i] !== selected) {
-					lis[i].style.backgroundColor = 'white';
-				} else {
-					lis[i].style.backgroundColor = cor;
-				}
-			}
-		});
-	}
+  const lis = ol.children;
+  const cor = 'rgb(128, 128, 128)';
+  for (let i = 0; i < lis.length; i += 1) {
+    lis[i].addEventListener('click', function () {
+      const selected = this;
+      for (let n = 0; n < lis.length; n += 1) {
+        if (lis[n] !== selected) {
+          lis[n].style.backgroundColor = 'white';
+        } else {
+          lis[n].style.backgroundColor = cor;
+        }
+      }
+    });
+  }
 }
 
-function completed() {
-	let lis = ol.children;
-	for (let l of lis) {
-		l.addEventListener('dblclick', function () {
-			let selecionado = this;
-			let classeSelecionado = parseInt(selecionado.classList[0]);
-
-			for (let i = 0; i < lis.length; i+=1) {
-						if(i === classeSelecionado && lis[i].classList.length < 2){
-					lis[i].classList.add('completed');
-				}else{
-					lis[i].classList.remove('completed');
-				}
-			}
-		});
-	}
+function removerFinalizados() {
+  const lis = ol.children;
+  console.log(lis);
+  btnFinalizados.addEventListener('click', function () {
+    for (let i = 0; i < lis.length; i += 1) {
+      if (lis[i].className === 'completed') {
+        lis[i].remove();
+      }
+    }
+  });
 }
 
-function apagaTudo(){
-	let lis = ol.children;
-
-	btnApaga.addEventListener('click', function(){
-		for(l of lis){
-			l.remove();
-		}
-	});
+function apagaTudo() {
+  const lis = ol.children;
+  btnApaga.addEventListener('click', function () {
+    for (let i = 0; i < lis.length; i += 1) {
+      lis[i].remove();
+    }
+  });
 }
 
-function removerFinalizados(){
-	let lis = ol.children;
+btnAdd.addEventListener('click', function () {
+  const texto = input.value;
+  const li = document.createElement('li');
+  li.innerHTML = texto;
+  ol.appendChild(li);
+  input.value = '';
+  alteraFundo();
+  apagaTudo();
+  removerFinalizados();
+});
 
-	btnFinalizados.addEventListener('click', function(){
-		for(l of lis){
-			if(l.classList[1] === 'completed'){
-				l.remove();
-			}
-		}
-	});
-}
-
-
-
-
-
-
-
+ol.addEventListener('dblclick', function (ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('completed');
+  }
+});

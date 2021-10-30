@@ -3,10 +3,10 @@ const ol = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const btnApaga = document.querySelector('#apaga-tudo');
 const btnFinalizados = document.querySelector('#remover-finalizados');
-
+const lis = ol.children;
+const cor = 'rgb(128, 128, 128)';
+ 
 function alteraFundo() {
-  const lis = ol.children;
-  const cor = 'rgb(128, 128, 128)';
   for (let i = 0; i < lis.length; i += 1) {
     lis[i].addEventListener('click', function () {
       const selected = this;
@@ -23,7 +23,6 @@ function alteraFundo() {
 
 function removerFinalizados() {
   const lis = ol.children;
-  console.log(lis);
   btnFinalizados.addEventListener('click', function () {
     for (let i = 0; i < lis.length; i += 1) {
       if (lis[i].className === 'completed') {

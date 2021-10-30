@@ -1,7 +1,97 @@
 * {
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid black;
+}
+
+.vermelho {
+  background-color: rgb(230 , 69 , 69);
+}
+
+.amarelo {
+  background-color: rgb(232 , 232 , 57);
+}
+
+.cinza {
+  background-color: gray;
+}
+
+body {
+  background-color: rgb(243 , 227 , 157);
+}
+
+header {
+  padding: 8px 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 5px;
+  width: 40%;
+  margin: auto;
+}
+
+.input {
+  margin: auto;
+  width: 70%;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 17px;
+  text-align: center;
+}
+
+input {
+  width: 78%;
+  padding: 5px;
+  margin-right: 2px;
+  border-radius: 4px;
+}
+
+.buttons {
+  width: 70%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.buttons button {
+  padding: 4px 8px;
+  margin-right: 5px;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+#criar-tarefa {
+  padding: 6px;
+  background-color: rgb(73 , 223 , 73);
+  border: 0;
+  border-radius: 4px;
+  width: 20%;
+}
+
+input:focus {
+  outline: none;
+}
+
+ol {
+  width: 80%;
+  margin: 20px auto;
+  list-style-position: inside;
+  padding: 10px;
+}
+
+li {
+  background-color: white;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 8px;
 }

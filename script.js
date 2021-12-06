@@ -1,59 +1,23 @@
 const btnAdd = document.querySelector('#criar-tarefa');
-const ol = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
-const btnApaga = document.querySelector('#apaga-tudo');
-const btnFinalizados = document.querySelector('#remover-finalizados');
-const lis = ol.children;
-const cor = 'rgb(128, 128, 128)';
- 
-function alteraFundo() {
-  for (let i = 0; i < lis.length; i += 1) {
-    lis[i].addEventListener('click', function () {
-      const selected = this;
-      for (let n = 0; n < lis.length; n += 1) {
-        if (lis[n] !== selected) {
-          lis[n].style.backgroundColor = 'white';
-        } else {
-          lis[n].style.backgroundColor = cor;
-        }
-      }
-    });
-  }
-}
+const olList = document.querySelector('#lista-tarefas');
 
-function removerFinalizados() {
-  const lis = ol.children;
-  btnFinalizados.addEventListener('click', function () {
-    for (let i = 0; i < lis.length; i += 1) {
-      if (lis[i].className === 'completed') {
-        lis[i].remove();
-      }
+const selecItem = ({ target }) => {
+  olList.childNodes.forEach((li) => {
+    if (li === target) {
+      target.classList.add('cinza');
+    } else {
+      li.classList.remove('cinza');
     }
   });
-}
+};
 
-function apagaTudo() {
-  const lis = ol.children;
-  btnApaga.addEventListener('click', function () {
-    for (let i = 0; i < lis.length; i += 1) {
-      lis[i].remove();
-    }
-  });
-}
-
-btnAdd.addEventListener('click', function () {
-  const texto = input.value;
+const addTarefas = () => {
   const li = document.createElement('li');
-  li.innerHTML = texto;
-  ol.appendChild(li);
+  li.innerText = input.value;
+  li.addEventListener('click', selecItem);
+  olList.appendChild(li);
   input.value = '';
-  alteraFundo();
-  apagaTudo();
-  removerFinalizados();
-});
+};
 
-ol.addEventListener('dblclick', function (ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('completed');
-  }
-});
+btnAdd.addEventListener('click', addTarefas);

@@ -17,84 +17,75 @@
 }
 
 .cinza {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: rgb(243 , 227 , 157);
 }
 
-header {
-  padding: 8px 0;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-
 .container {
-  padding: 5px;
-  width: 40%;
-  margin: auto;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  background-color: rgb(128 , 153 , 128);
+  padding: 5px 5px 10px;
 }
 
-.input {
-  margin: auto;
-  width: 70%;
+h1 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  border-bottom: 1px solid;
+  margin-bottom: 8px;
 }
 
 p {
-  margin: 10px 0;
-  font-size: 17px;
-  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
 }
 
 input {
-  width: 78%;
+  margin-bottom: 8px;
   padding: 5px;
-  margin-right: 2px;
-  border-radius: 4px;
-}
-
-.buttons {
-  width: 70%;
-  margin: 15px auto;
-  text-align: center;
-}
-
-.buttons button {
-  padding: 4px 8px;
-  margin-right: 5px;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  width: 100px;
-}
-
-#criar-tarefa {
-  padding: 6px;
-  background-color: rgb(73 , 223 , 73);
-  border: 0;
-  border-radius: 4px;
-  width: 20%;
+  border: none;
+  border-radius: 3px;
 }
 
 input:focus {
   outline: none;
 }
 
-ol {
-  width: 80%;
-  margin: 20px auto;
-  list-style-position: inside;
-  padding: 10px;
-}
-
-li {
-  background-color: white;
-  padding: 8px;
-  border-radius: 5px;
-  width: 100%;
+#criar-tarefa {
+  width: 30%;
+  margin: auto;
+  padding: 4px 0;
   margin-bottom: 8px;
 }
 
+.buttons button {
+  padding: 4px;
+  margin: 0 2px;
+}
 
+ol {
+  list-style-position: inside;
+  width: 80%;
+  margin: 18px auto;
+}
+
+ol li {
+  background-color: honeydew;
+  margin: 6px auto;
+  border-radius: 4px;
+  padding: 4px;
+}

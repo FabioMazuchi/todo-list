@@ -67,6 +67,7 @@ input {
   border: 0;
   border-radius: 4px;
   font-weight: 600;
+  width: 100px;
 }
 
 #criar-tarefa {
@@ -95,3 +96,5 @@ li {
   width: 100%;
   margin-bottom: 8px;
 }
+
+

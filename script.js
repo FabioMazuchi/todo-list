@@ -4,7 +4,16 @@ const olList = document.querySelector('#lista-tarefas');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 const btnRemFin = document.querySelector('#remover-finalizados');
 const btnSalvar = document.querySelector('#salvar-tarefas');
-// console.log(btnSalvar);
+const btnRemoverSel = document.querySelector('#remover-selecionado');
+
+const removerSelecionados = () => {
+  const lis = olList.children;
+  for (let i = 0; i < lis.length; i += 1) {
+    if (lis[i].classList.contains('cinza')) {
+      lis[i].remove();
+    }
+  }
+};
 
 const salvar = () => {
   localStorage.setItem('items', olList.innerHTML);
@@ -61,5 +70,6 @@ const addTarefas = () => {
 btnAdd.addEventListener('click', addTarefas);
 btnApagaTudo.addEventListener('click', apagaTudo);
 btnSalvar.addEventListener('click', salvar);
+btnRemoverSel.addEventListener('click', removerSelecionados);
 
 window.onload = recuperar;

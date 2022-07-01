@@ -17,6 +17,7 @@ const removerSelecionados = () => {
 
 const salvar = () => {
   localStorage.setItem('items', olList.innerHTML);
+  alert('Lista salva com suceso!');
 };
 
 const removerFinalizados = () => {
